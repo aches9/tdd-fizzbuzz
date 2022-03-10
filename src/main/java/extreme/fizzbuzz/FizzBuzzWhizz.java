@@ -14,14 +14,15 @@ public class FizzBuzzWhizz {
         String numStr = String.valueOf(number);
         boolean contain3 = numStr.contains("3");
         boolean contain5 = numStr.contains("5");
+        boolean contain7 = numStr.contains("7");
 
         if( contain3 && !contain5 ){
             return "Fizz";
         }
-        if( number % 3 == 0 && !contain5 ){
+        if( number % 3 == 0 && (!contain5 || contain7) ){
             result += "Fizz";
         }
-        if( number % 5 == 0 ){
+        if( number % 5 == 0 && !contain7){
             result += "Buzz";
         }
         if( number % 7 == 0 ){
