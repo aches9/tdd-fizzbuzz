@@ -12,10 +12,13 @@ public class FizzBuzzWhizz {
     public String getFizzBuzzWhizz(int number){
         String result = "";
         String numStr = String.valueOf(number);
-        if(numStr.contains("3")){
+        boolean contain3 = numStr.contains("3");
+        boolean contain5 = numStr.contains("5");
+
+        if( contain3 && !contain5 ){
             return "Fizz";
         }
-        if( number % 3 == 0 ){
+        if( number % 3 == 0 && !contain5 ){
             result += "Fizz";
         }
         if( number % 5 == 0 ){

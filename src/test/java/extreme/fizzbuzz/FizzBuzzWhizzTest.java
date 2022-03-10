@@ -1,62 +1,143 @@
 package extreme.fizzbuzz;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
 public class FizzBuzzWhizzTest {
 
-    @Test
-    void should_Fizz_when_exactly_divisible_by_3_given_number() {
+    @ParameterizedTest
+    @ValueSource(ints = {1, 4})
+    void should_return_number_when_not_divisible_and_neither_contains_given_number(int number) {
         FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
-        String result = fizzBuzzWhizz.getFizzBuzzWhizz(3);
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals(String.valueOf(number), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {6, 12})
+    void should_Fizz_when_divisible_by_3_and_neither_contains_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
         Assertions.assertEquals("Fizz", result);
     }
 
-    @Test
-    void should_Buzz_when_exactly_divisible_by_5_and_not_contain_3_given_number() {
+    @ParameterizedTest
+    @ValueSource(ints = {10, 20})
+    void should_Buzz_when_divisible_by_5_and_neither_contains_given_number(int number) {
         FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
-        String result = fizzBuzzWhizz.getFizzBuzzWhizz(5);
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
         Assertions.assertEquals("Buzz", result);
     }
 
-    @Test
-    void should_Whizz_when_exactly_divisible_by_7_and_not_contain_3_given_number() {
+    @ParameterizedTest
+    @ValueSource(ints = {60, 90})
+    void should_FizzBuzz_when_divisible_by_3_and_5_and_neither_contains_given_number(int number) {
         FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
-        String result = fizzBuzzWhizz.getFizzBuzzWhizz(7);
-        Assertions.assertEquals("Whizz", result);
-    }
-
-    @Test
-    void should_FizzBuzz_when_exactly_divisible_by_3_and_5_and_not_contain_3_given_number() {
-        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
-        String result = fizzBuzzWhizz.getFizzBuzzWhizz(15);
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
         Assertions.assertEquals("FizzBuzz", result);
     }
 
-    @Test
-    void should_FizzWhizz_when_exactly_divisible_by_3_and_7_and_not_contain_3_given_number() {
-        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
-        String result = fizzBuzzWhizz.getFizzBuzzWhizz(21);
-        Assertions.assertEquals("FizzWhizz", result);
-    }
 
-    @Test
-    void should_BuzzWhizz_when_exactly_divisible_by_5_and_7_and_not_contain_3_given_number() {
-        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
-        String result = fizzBuzzWhizz.getFizzBuzzWhizz(70);
-        Assertions.assertEquals("BuzzWhizz", result);
-    }
-    @Test
-    void should_FizzBuzzWhizz_when_exactly_divisible_by_3_and_5_and_7_and_not_contain_3_given_number() {
-        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
-        String result = fizzBuzzWhizz.getFizzBuzzWhizz(105);
-        Assertions.assertEquals("FizzBuzzWhizz", result);
-    }
 
-    @Test
-    void should_Fizz_when_contain_3_given_number() {
+    @ParameterizedTest
+    @ValueSource(ints = {13, 23})
+    void should_Fizz_when_not_divisible_and_contain_3_given_number(int number) {
         FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
-        String result = fizzBuzzWhizz.getFizzBuzzWhizz(315);
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
         Assertions.assertEquals("Fizz", result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {3, 33})
+    void should_Fizz_when_divisible_by_3_and_contain_3_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals("Fizz", result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {130})
+    void should_Fizz_when_divisible_by_5_and_contain_3_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals("Fizz", result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {30})
+    void should_Fizz_when_divisible_by_3_and_5_and_contain_3_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals("Fizz", result);
+    }
+
+
+
+    @ParameterizedTest
+    @ValueSource(ints = {52, 58})
+    void should_return_number_when_not_divisible_and_contain_5_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals(String.valueOf(number), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {51, 54})
+    void should_return_number_when_divisible_by_3_and_contain_5_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals(String.valueOf(number), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {5})
+    void should_Buzz_when_divisible_by_5_and_contain_5_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals("Buzz", result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {15})
+    void should_Buzz_when_divisible_by_3_and_5_and_contain_5_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals("Buzz", result);
+    }
+
+
+
+
+    @ParameterizedTest
+    @ValueSource(ints = {53})
+    void should_return_number_when_not_divisible_and_contain_3_and_5_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals(String.valueOf(number), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {153})
+    void should_return_number_when_divisible_by_3_and_contain_3_and_5_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals(String.valueOf(number), result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {235})
+    void should_Buzz_when_divisible_by_5_and_contain_3_and_5_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals("Buzz", result);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {135})
+    void should_Buzz_when_divisible_by_3_and_5_and_contain_3_and_5_given_number(int number) {
+        FizzBuzzWhizz fizzBuzzWhizz = new FizzBuzzWhizz();
+        String result = fizzBuzzWhizz.getFizzBuzzWhizz(number);
+        Assertions.assertEquals("Buzz", result);
     }
 }
