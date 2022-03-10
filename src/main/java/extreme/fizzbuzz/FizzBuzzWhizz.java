@@ -10,15 +10,18 @@ public class FizzBuzzWhizz {
     }
 
     public String getFizzBuzzWhizz(int number){
-        String result = String.valueOf(number);
+        String result = "";
         if( number % 3 == 0 ){
-            return "Fizz";
+            result += "Fizz";
         }
         if( number % 5 == 0 ){
-            return "Buzz";
+            result += "Buzz";
         }
         if( number % 7 == 0 ){
-            return "Whizz";
+            result += "Whizz";
+        }
+        if (result.equals("")) {
+            result = String.valueOf(number);
         }
         return result;
     }
